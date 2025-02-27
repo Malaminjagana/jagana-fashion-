@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashion Shop</title>
+    <link rel="icon" type="image/x-icon" href="chel.jpg.png">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,8 +13,8 @@
             background-color: #f8f8f8;
         }
         header {
-            background: #333;
-            color: white;
+            background: #06e04b;
+            color: black;
             padding: 20px;
             text-align: center;
             font-size: 24px;
@@ -27,6 +28,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
+           
         }
         .product {
             background: white;
@@ -52,7 +54,7 @@
             color: #555;
         }
         .product button {
-            background: #333;
+            background: #06d6ba;
             color: white;
             border: none;
             padding: 10px;
@@ -88,6 +90,108 @@
                 padding: 15px;
             }
         }
+
+        /* animations*/
+.loader {
+  width: 60px;
+  aspect-ratio: 4;
+  --c:#000 90%,#0000;
+  background: 
+    radial-gradient(circle closest-side at left  6px top 50%,var(--c)),
+    radial-gradient(circle closest-side                     ,var(--c)),
+    radial-gradient(circle closest-side at right 6px top 50%,var(--c));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: l4 1s infinite alternate;
+}
+@keyframes l4 {
+    to{width:25px;aspect-ratio: 1}
+}
+
+/* HTML: <div class="loader"></div> */
+.loader1 {
+  width: 60px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
+  background: 
+    var(--_g) 0%   50%,
+    var(--_g) 50%  50%,
+    var(--_g) 100% 50%;
+  background-size: calc(100%/3) 50%;
+  animation: l3 1s infinite linear;
+}
+
+.loader2 {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #25b09b;
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
+
+
+/* HTML: <div class="loader"></div> */
+.loader3 {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  animation: l6-0 1.5s infinite linear;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  background: #514b82;
+  animation: 
+    l6-1 1.5s infinite linear,
+    l6-2 1.5s infinite linear;
+}
+.loader:after {
+  --s:-1;
+  animation-direction: reverse;
+}
+@keyframes l6-0 {
+  0%,9%,91%,100% {background: #514b82}
+  10%,90%        {background: #0000}
+}
+@keyframes l6-1 {
+  0%,33%   {clip-path: polygon(0   0,50% 100%,100% 0,100% 100%,0 100%)}
+  66%,100% {clip-path: polygon(50% 0,50% 100%,50%  0,100% 100%,0 100%)}
+}
+@keyframes l6-2 {
+  0%,10%,90%,100% {transform: scale(var(--s,1)) translateY(0)}
+  33%,66%         {transform: scale(var(--s,1)) translateY(50%)}
+}
+
+
+
+
+
+
+
+
+
+
+@keyframes l3 {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}
+
+
+
+
+
     </style>
     <script>
         function showContact() {
@@ -104,124 +208,1083 @@
     </script>
 </head>
 <body>
-    <header>Fashion Shop</header>
+    <header> Jagana Fashion Shop</header>
     <div style="text-align: center; margin-top: 50px;">
-        <button onclick="toggleStatement()">Discover Our Fashion / Découvrez Notre Mode</button>
+
+       
+        <button onclick="toggleStatement()" style="color: #139382; border-radius: 200px;"><strong>English:</strong>Welcome to <strong> Jagana Fashion,</strong> where style meets quality! We offer a wide range of clothing for every occasion and taste. Every month, we introduce new models to keep your wardrobe fresh and trendy. Whether you’re looking for casual wear, formal outfits, or the latest fashion trends, we have everything you need. Shop with us and stay ahead of fashion!!</button>
+        <div style="display: flex; text-align: center; gap: 150px;">
+            <div class="loader1"></div>
+            <div class="loader2"></div> 
+            <div class="loader3"></div>
+        </div>
+        <button onclick="toggleStatement()" style="color: #139382; border-radius: 200px;"><strong>French:</strong> Bienvenue chez<strong> Jagana Fashion</strong> où le style rencontre la qualité ! Nous proposons une large gamme de vêtements pour toutes les occasions et tous les goûts. Chaque mois, nous introduisons de nouveaux modèles pour renouveler votre garde-robe avec les dernières tendances. Que vous recherchiez une tenue décontractée, élégante ou à la pointe de la mode, nous avons tout ce qu'il vous faut. Faites vos achats chez nous et restez toujours tendance !
+            
+            </button>
     </div>
-    <p id="charming-statement">Step into elegance and confidence! Explore our exclusive fashion collections, designed to make you shine. Your perfect style awaits! / Entrez dans l'élégance et la confiance ! Explorez nos collections de mode exclusives, conçues pour vous faire briller. Votre style parfait vous attend !</p>
+   
 
 
     <div class="container">
+
+        <div class="loader"></div>
+        <div class="loader1"></div>
+
+
+        <!--animation place ad the sites on top of the pictuers-->
         <div class="gallery">
             <div class="product">
                 <img src="cl1.jpeg" alt="Clothing Item 1">
                
               
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
                 <img src="cl2.jpeg" alt="Clothing Item 2">
                 
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
                 <img src="cl3.jpeg" alt="Clothing Item 3">
                 
                 
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
                 <img src="cl4.jpeg" alt="Clothing Item 4">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
                 <img src="cl5.jpeg" alt="Clothing Item 5">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
                 <img src="cl6.jpeg" alt="Clothing Item 6">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
                 <img src="cl7.jpeg" alt="Clothing Item 7">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
                 <img src="cl8.jpeg" alt="Clothing Item 8">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
                 <img src="cl9.jpeg" alt="Clothing Item 9">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
-                <img src="cj10.jpeg" alt="Clothing Item 4">
+                <img src="cj10.jpeg" alt="Clothing Item 10">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
 
             <div class="product">
-                <img src="" alt="Clothing Item 4">
+                <img src="cl11.jpeg" alt="Clothing Item 11">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
-                <img src="" alt="Clothing Item 4">
+                <img src="cl12.jpeg" alt="Clothing Item 12">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
-                <img src="" alt="Clothing Item 4">
+                <img src="cl13.jpeg" alt="Clothing Item 13">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
-                <img src="" alt="Clothing Item 4">
+                <img src="cl14.jpeg" alt="Clothing Item 14">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
-                <img src="" alt="Clothing Item 4">
+                <img src="cl15.jpeg" alt="Clothing Item 15">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
-                <img src="" alt="Clothing Item 4">
+                <img src="cl16.jpeg" alt="Clothing Item 16">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
             <div class="product">
-                <img src="" alt="Clothing Item 4">
+                <img src="cl17.jpeg" alt="Clothing Item 17">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
-            <var> <div class="product">
-                <img src="" alt="Clothing Item 4">
+           
+                 <div class="product">
+                <img src="cl18.jpeg" alt="Clothing Item 18">
                 
                
-                <button onclick="showContact()">Contact us Contactez-nous</button>
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
             </div>
-        </var>
+            <div class="product">
+                <img src="cl19.jpeg" alt="Clothing Item 19">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl20.jpeg" alt="Clothing Item 20">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl21.jpeg" alt="Clothing Item 21">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl22.jpeg" alt="Clothing Item 22">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl23.jpeg" alt="Clothing Item 23">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl24.jpeg" alt="Clothing Item 24">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl25.jpeg" alt="Clothing Item 25">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl26.jpeg" alt="Clothing Item 26">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl27.jpeg" alt="Clothing Item 27">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl28.jpeg" alt="Clothing Item 28">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl29.jpeg" alt="Clothing Item 29">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl30.jpeg" alt="Clothing Item 30">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl31.jpeg" alt="Clothing Item 31">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl32.jpeg" alt="Clothing Item 32">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl33.jpeg" alt="Clothing Item 33">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl34.jpeg" alt="Clothing Item 34">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl35.jpeg" alt="Clothing Item 35">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+
+
+            <div class="product">
+                <img src="cl36.jpeg" alt="Clothing Item 36">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl37.jpeg" alt="Clothing Item 37">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl38.jpeg" alt="Clothing Item 38">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl39.jpeg" alt="Clothing Item 39">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl40.jpeg" alt="Clothing Item 40">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl41.jpeg" alt="Clothing Item 41">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl42.jpeg" alt="Clothing Item 42">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl43.jpeg" alt="Clothing Item 43">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl44.jpeg" alt="Clothing Item 44">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl45.jpeg" alt="Clothing Item 45">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl46.jpeg" alt="Clothing Item 46">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl47.jpeg" alt="Clothing Item 47">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl48.jpeg" alt="Clothing Item 48">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl49.jpeg" alt="Clothing Item 49">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl50.jpeg" alt="Clothing Item 50">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+<div class="product">
+                <img src="cl51.jpeg" alt="Clothing Item 51">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl52.jpeg" alt="Clothing Item 52">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl53.jpeg" alt="Clothing Item 53">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl54.jpeg" alt="Clothing Item 54">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl55.jpeg" alt="Clothing Item 55">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div> 
+            <div class="product">
+                <img src="cl56.jpeg" alt="Clothing Item 56">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl57.jpeg" alt="Clothing Item 57">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl58.jpeg" alt="Clothing Item 58">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl59.jpeg" alt="Clothing Item 59">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl60.jpeg" alt="Clothing Item 60">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl61.jpeg" alt="Clothing Item 61">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl62.jpeg" alt="Clothing Item 62">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl63.jpeg" alt="Clothing Item 63">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl64.jpeg" alt="Clothing Item 64">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl65.jpeg" alt="Clothing Item 65">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl66.jpeg" alt="Clothing Item 66">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl67.jpeg" alt="Clothing Item 67">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl68.jpeg" alt="Clothing Item 68">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl69.jpeg" alt="Clothing Item 69">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl70.jpeg" alt="Clothing Item 70">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl71.jpeg" alt="Clothing Item 71">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl72.jpeg" alt="Clothing Item 72">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl73.jpeg" alt="Clothing Item 73">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl74.jpeg" alt="Clothing Item 74">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl75.jpeg" alt="Clothing Item 75">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl76.jpeg" alt="Clothing Item 76">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl77.jpeg" alt="Clothing Item 77">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl78.jpeg" alt="Clothing Item 78">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl79.jpeg" alt="Clothing Item 79">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div><div class="product">
+                <img src="cl80.jpeg" alt="Clothing Item 80">
+                
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl81.jpeg" alt="Clothing Item 81">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl82.jpeg" alt="Clothing Item 82">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl83.jpeg" alt="Clothing Item 83">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl84.jpeg" alt="Clothing Item 84">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl85.jpeg" alt="Clothing Item 85">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl86.jpeg" alt="Clothing Item 86">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl87.jpeg" alt="Clothing Item 87">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl88.jpeg" alt="Clothing Item 88">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl89.jpeg" alt="Clothing Item 89">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl90.jpeg" alt="Clothing Item 90">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl91.jpeg" alt="Clothing Item 91">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl92.jpeg" alt="Clothing Item 92">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl93.jpeg" alt="Clothing Item 93">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl94.jpeg" alt="Clothing Item 94">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl95.jpeg" alt="Clothing Item 95">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl95.jpeg" alt="Clothing Item 96">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl97.jpeg" alt="Clothing Item 97">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl98.jpeg" alt="Clothing Item 98">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl99.jpeg" alt="Clothing Item 99">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl100.jpeg" alt="Clothing Item 100">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <!--p come  here 67 items-->
+            <div class="product">
+                <img src="p1.jpeg" alt="Clothing Item 1">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p2.jpeg" alt="Clothing Item 2">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p3.jpeg" alt="Clothing Item ">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p40.jpeg" alt="Clothing Item 4">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p5.jpeg" alt="Clothing Item 5">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p6.jpeg" alt="Clothing Item 6">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p7.jpeg" alt="Clothing Item 7">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p8.jpeg" alt="Clothing Item 8">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p9.jpeg" alt="Clothing Item 9">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p10.jpeg" alt="Clothing Item 10">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p11.jpeg" alt="Clothing Item 11">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p12.jpeg "alt="Clothing Item 12">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p13.jpeg" alt="Clothing Item 13">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p14.jpeg" alt="Clothing Item 14">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p15.jpeg" alt="Clothing Item 15">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p16.jpeg" alt="Clothing Item 16">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p17.jpeg" alt="Clothing Item 17">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p18.jpeg" alt="Clothing Item 18">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p19.jpeg" alt="Clothing Item 19">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p20.jpeg" alt="Clothing Item 20">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p21.jpeg" alt="Clothing Item 21">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p22.jpeg" alt="Clothing Item 22">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p23.jpeg" alt="Clothing Item 23">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p24.jpeg" alt="Clothing Item 24">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p25.jpeg" alt="Clothing Item 25">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p26.jpeg" alt="Clothing Item 26">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p27.jpeg" alt="Clothing Item 27">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p28.jpeg" alt="Clothing Item 28">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p29.jpeg" alt="Clothing Item 29">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p30.jpeg" alt="Clothing Item 30">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p31.jpeg" alt="Clothing Item 31">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p32.jpeg" alt="Clothing Item 32">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+
+            <div class="product">
+                <img src="p33.jpeg" alt="Clothing Item 33">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+
+            <div class="product">
+                <img src="p34.jpeg" alt="Clothing Item 34">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p35.jpeg" alt="Clothing Item 35">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+
+            <div class="product">
+                <img src="p36.jpeg" alt="Clothing Item 36">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p37.jpeg" alt="Clothing Item 37">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="cl29.jpeg" alt="Clothing Item 38">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p39.jpeg" alt="Clothing Item 39">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p40.jpeg" alt="Clothing Item 40">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p41.jpeg" alt="Clothing Item 41">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p42.jpeg" alt="Clothing Item 42">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p43.jpeg" alt="Clothing Item 43">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p44.jpeg" alt="Clothing Item 44">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            
+            <div class="product">
+                <img src="p45.jpeg" alt="Clothing Item 45">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p46.jpeg" alt="Clothing Item 46">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p47.jpeg" alt="Clothing Item 47">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p48.jpeg" alt="Clothing Item 48">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p49.jpeg" alt="Clothing Item 49">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p50.jpeg" alt="Clothing Item 50">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p51.jpeg" alt="Clothing Item 51">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p52.jpeg" alt="Clothing Item 52">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p53.jpeg" alt="Clothing Item 53">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p54.jpeg" alt="Clothing Item 54">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p55.jpeg" alt="Clothing Item 55">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p56.jpeg" alt="Clothing Item 56">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p57.jpeg" alt="Clothing Item 57">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p58.jpeg" alt="Clothing Item 58">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p59.jpeg" alt="Clothing Item 59">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p60.jpeg" alt="Clothing Item 60">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p61.jpeg" alt="Clothing Item 61">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p62.jpeg" alt="Clothing Item 62">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p63.jpeg" alt="Clothing Item 63">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p64.jpeg" alt="Clothing Item 64">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p65.jpeg" alt="Clothing Item 65">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p66.jpeg" alt="Clothing Item 66">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p67.jpeg" alt="Clothing Item 67">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p68.jpeg" alt="Clothing Item 68">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p69.jpeg" alt="Clothing Item 69">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p70.jpeg" alt="Clothing Item 70">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p71.jpeg" alt="Clothing Item 71">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p72.jpeg" alt="Clothing Item 72">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p73.jpeg" alt="Clothing Item 73">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p74.jpeg" alt="Clothing Item 74">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p75.jpeg" alt="Clothing Item 75">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p76.jpeg" alt="Clothing Item 76">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p77.jpeg" alt="Clothing Item 77">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p78.jpeg" alt="Clothing Item 78">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p79.jpeg" alt="Clothing Item 79">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p80.jpeg" alt="Clothing Item 80">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p81.jpeg" alt="Clothing Item 81">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+            <div class="product">
+                <img src="p82.jpeg" alt="Clothing Item 82">
+               
+              
+                <button onclick="showContact()">Contact us / Contactez-nous</button>
+            </div>
+       
+        
+        
+
+
+
+
+
+
+
+</div>
+<!--the cl i get 100 Items-->
+<!--now the P is coming hhere-->
+
+
+
+  
+</div>
+</var>
+
+<!--the p i get 67 Items-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
 
 
@@ -234,14 +1297,29 @@
     </div>
     <div id="contact-section" class="contact">
         <h2>Contact Us</h2>
-        <p>Email: info@fashionshop.com</p>
-        <p>Phone: +123 456 7890</p>
+        <p>Email:mntjagana@gmail.com</p>
+        <p>Phone: +22892429232</p>
     </div>
     <div style="text-align: center; margin-top: 20px;">
         <button onclick="toggleStatement()">Discover Our Fashion / Découvrez Notre Mode</button>
     </div>
     <p id="charming-statement">Step into elegance and confidence! Explore our exclusive fashion collections, designed to make you shine. Your perfect style awaits! / Entrez dans l'élégance et la confiance ! Explorez nos collections de mode exclusives, conçues pour vous faire briller. Votre style parfait vous attend !</p>
+<footer>
 
-    <p>we have all type off  A,B,C,D,E,F</p>
+
+
+<section style="text-align: center;">
+    
+    <li>&copy; dev by </li><li>M jagana: </a></li>
+    
+    <img src="mala.jpg.jpeg" alt="nicepicture" width="90px" style="border-radius: 50px;" >
+     
+    
+    
+    
+   
+</section>
+by
+</footer>
 </body>
 </html>
